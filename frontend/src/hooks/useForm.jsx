@@ -7,7 +7,12 @@ export const useForm = () => {
         }
         return formData;
     }
+    const serializefiles = (fields) => {
+        const data = new FormData(fields);
+       return data;
+    }
     return {
-        serialize
+        serialize,
+        serializefiles
     }
 }

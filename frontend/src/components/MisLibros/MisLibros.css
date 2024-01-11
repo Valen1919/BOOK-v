@@ -1,0 +1,37 @@
+.mis-libros-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.agregar-libro {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.agregar-libro input {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  /* Cambia el ancho al 100% para que se ajuste al contenedor */
+}
+
+.agregar-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+p {
+  color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

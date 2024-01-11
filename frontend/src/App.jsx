@@ -4,23 +4,26 @@ import Login from "./components/login/Login";
 import Home from "./pages/home/Home";
 import Footer from "./layouts/footer/Footer";
 import Books from "./components/libros/Books";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import Categorias from "./components/Categorias/Categorias";
 import LibroDetalle from "./components/VerDetalle/VerDetalle";
+import Profile from "./components/Profile/Profile";
+import MisLibros from "./components/MisLibros/MisLibros";
+import Tienda from "./components/Tienda/Tienda";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Header />
+        <Header />
         <Routes>
 
           <Route
             path="/register"
             element={
               <>
-                <Registro/>
+                <Registro />
               </>
             }
           />
@@ -33,16 +36,36 @@ function App() {
               </>
             }
           />
-            <Route
-            path="/"
+
+          <Route
+            path="/Profile"
             element={
               <>
-              
-                <Books books={Books}/>
+                <Profile />
               </>
             }
           />
-            <Route
+          <Route
+            path="/MisLibros"
+            element={<MisLibros />}
+          />
+          <Route
+            path="/"
+            element={
+              <>
+                <Books books={Books} />
+              </>
+            }
+          />
+          <Route
+            path="/Tienda"
+            element={
+              <>
+                <Tienda />
+              </>
+            }
+          />
+          <Route
             path="/categorias"
             element={
               <>
@@ -50,17 +73,17 @@ function App() {
               </>
             }
           />
-          <Route
-          path="/libro/id" component={LibroDetalle}
-          element={
-            <>
-              <LibroDetalle />
-            </>
-          }
-        />
+          <Route path="/libro/:book_id" component={LibroDetalle}
+            element={
+              <>
+                <LibroDetalle />
+              </>
+            }
+          />
+          
 
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );

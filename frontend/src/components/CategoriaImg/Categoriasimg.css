@@ -1,0 +1,56 @@
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .categorias-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+    margin: -10px; /* Añade un margen negativo para compensar el margen de las tarjetas */
+  }
+  
+  .categoria-card {
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0; /* Elimina el relleno para ajustar el tamaño de manera uniforme */
+    width: calc(20% - 20px); /* Calcula el ancho para que haya 5 tarjetas por fila */
+    max-width: 200px; /* Ancho máximo para cada tarjeta */
+    height: 300px; /* Altura fija para todas las tarjetas */
+    overflow: hidden; /* Oculta el contenido que excede las dimensiones de la tarjeta */
+    position: relative; /* Para posicionar el título encima de la imagen */
+    background-color: #fff; /* Fondo blanco para la tarjeta */
+  }
+  
+  .categoria-image {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor de la tarjeta */
+    height: 70%; /* Altura fija para todas las imágenes, ajusta según sea necesario */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .categoria-image img {
+    width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+    height: 100%; /* Asegura que la imagen se ajuste al contenedor */
+    object-fit: cover; /* Escala la imagen para que llene el contenedor */
+    opacity: 0.7; /* Opacidad de la imagen */
+    transition: opacity 0.2s; /* Transición suave de opacidad */
+  }
+  
+  .categoria-image:hover img {
+    opacity: 1; /* Restaura la opacidad al pasar el cursor sobre la imagen */
+  }
+  
+  .categoria-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el título vertical y horizontalmente */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el título */
+    color: #fff; /* Color del texto del título */
+    padding: 5px;
+    border-radius: 5px;
+  }
+  

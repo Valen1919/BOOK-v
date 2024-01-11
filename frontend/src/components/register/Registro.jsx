@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import endPoints from "../../services/api";
-import { useForm } from "../../hooks/useForm"
-import { useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { Link, useNavigate } from "react-router-dom";
 
 function Registro() {
   const { serialize } = useForm(); // Llama al hook useForm para obtener la función serialize
@@ -11,23 +11,22 @@ function Registro() {
   const [isRegistered, setIsRegistered] = useState(false); // Ejemplo: estado para verificar si el registro se completó
   const [showConfirmation, setShowConfirmation] = useState(false); // Estado para mostrar un mensaje de confirmación
 
-
-
   const registerForm = async (ev) => {
     ev.preventDefault();
     const formData = serialize(ev.target); // Utiliza serialize para obtener los datos del formulario
     console.log(formData);
 
     try {
-      const response = await axios.post(endPoints.usuario.postRegister, formData);
+      const response = await axios.post(
+        endPoints.usuario.postRegister,
+        formData
+      );
       setRegister(response.data);
       setIsRegistered(true);
     } catch (error) {
       console.log(error);
     }
-
   };
-
 
   useEffect(() => {
     // Verificar si el registro se completó (esto puede depender de tu lógica específica)
@@ -45,17 +44,18 @@ function Registro() {
     }
   }, [isRegistered]);
 
-
-
   return (
     <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-blue-600">Registrarse</h2>
         </div>
         <form className="mt-4" onSubmit={registerForm} method="post">
           <div className="mb-4">
-            <label htmlFor="nombres" className="block text-gray-700 font-medium">
+            <label
+              htmlFor="nombres"
+              className="block text-gray-700 font-medium"
+            >
               Nombres
             </label>
             <input
@@ -67,7 +67,10 @@ function Registro() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="apellidos" className="block text-gray-700 font-medium">
+            <label
+              htmlFor="apellidos"
+              className="block text-gray-700 font-medium"
+            >
               Apellidos
             </label>
             <input
@@ -103,7 +106,10 @@ function Registro() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-gray-700 font-medium">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-medium"
+            >
               Password
             </label>
             <input
@@ -122,6 +128,8 @@ function Registro() {
             >
               Registrarse
             </button>
+            <p>¿Ya tienes una cuenta?</p>
+            <Link to="/login"> Ingresar </Link>
           </div>
         </form>
       </div>
@@ -130,6 +138,3 @@ function Registro() {
 }
 
 export default Registro;
-
-
-
